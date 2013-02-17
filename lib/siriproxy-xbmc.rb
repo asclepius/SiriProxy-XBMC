@@ -147,6 +147,13 @@ class SiriProxy::Plugin::XBMC < SiriProxy::Plugin
     request_completed #always complete your request! Otherwise the phone will "spin" at the user!
   end
 
+  # schedule tv_listings
+  listen_for /^schedule.*tv/i do 
+    say "Scheduling TV..."
+    system '/home/paul/bin/auto_sched.sh &'
+    request_completed #always complete your request! Otherwise the phone will "spin" at the user!
+  end
+
   # resume playing
   listen_for /^resume|unpause|continue/i do 
     if (@xbmc.connect(@active_room))
