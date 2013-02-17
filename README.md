@@ -1,6 +1,10 @@
 SiriProxy-XBMC
 ==============
 
+Fork of the original SiriProxy-XBMC, I don't care much about the fancy extras, but I like retaining the "play" keyword for my music.
+Changed keywords for some basic commands.
+
+
 About
 -----
 SiriProxy-XBMC is a [Siri Proxy](https://github.com/plamoni/SiriProxy) plugin that allows you to send commands to [XBMC](http://www.xbmc.org).
@@ -75,7 +79,7 @@ Optionally you can specify a room name if you have configured the plugin for mul
 These commands set the active room.
 All commands will be sent to this room, until you specify another room of course.
 
-    play <title> [in the <room name>]
+    watch <title> [in the <room name>]
 
 This command will first look in your TV show library and play the first unwatched episode.
 If no TV show is found, it will look in your movie library and play the first matching movie.
@@ -94,6 +98,10 @@ These command resume the video player
     stop
 
 This command stops the video player
+
+    update library
+
+This command updates the library
 
 
 Notes

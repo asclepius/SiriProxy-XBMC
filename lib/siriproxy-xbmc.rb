@@ -104,7 +104,7 @@ class SiriProxy::Plugin::XBMC < SiriProxy::Plugin
   end
 
   # scan
-  listen_for /^scan/i do 
+  listen_for /^update.*library/i do 
     if (@xbmc.connect(@active_room))
       if @xbmc.scan()
         say "I'm scanning for new content"
@@ -127,7 +127,7 @@ class SiriProxy::Plugin::XBMC < SiriProxy::Plugin
   end
 
   # recently added episodes
-  listen_for /recent.*tv/i do 
+  listen_for /recent.*tv|recent.*episodes/i do 
     if (@xbmc.connect(@active_room))
       data = @xbmc.get_recently_added_episodes()
 
@@ -173,7 +173,7 @@ class SiriProxy::Plugin::XBMC < SiriProxy::Plugin
   end  
 
   #play movie or episode
-  listen_for /play (.+?)(?: in the (.*))?$/i do |title,roomname|
+  listen_for /watch (.+?)(?: in the (.*))?$/i do |title,roomname|
     if (roomname == "" || roomname == nil)
       roomname = @active_room
     else
